@@ -54,11 +54,32 @@ describe(`isFive`, function() {
     it(`should return the boolean false when x doesn't equal 5`, function () {
         expect(isFive( !5)).toBe(false)
     });
+    it(`should return the boolean false when input is string`, function () {
+        expect(isFive(`5`)).toBe(false)
+    });
 });
 //isEven
 describe(`isEven`, function() {
     it('should be a defined function', function () {
         expect(typeof isEven).toBe(`function`);
+    });
+    it(`should return the boolean true if input is 2`, function () {
+        expect(isEven(2 )).toBe(true)
+    });
+    it(`should return the boolean true if input is -4`, function () {
+        expect(isEven(-4 )).toBe(true)
+    });
+    it(`should return the boolean true if input is -4`, function () {
+        expect(isEven(8 )).toBe(true)
+    });
+    it(`should return the boolean false if input is 3`, function () {
+        expect(isEven(3 )).toBe(false)
+    });
+    it(`should return the boolean false if input is 3`, function () {
+        expect(isEven(`` )).toBe(false)
+    });
+    it(`should return the boolean false if input is 3`, function () {
+        expect(isEven(`banana` )).toBe(false)
     });
     it(`should return the boolean false if false`, function () {
         expect(isEven(false )).toBe(false)
@@ -77,11 +98,23 @@ describe(`isVowel`, function() {
         expect(typeof isVowel).toBe(`function`);
     });
     it(`should return the boolean true if a,e,i,o,u are input`, function () {
-        expect(isVowel(`a` || `e` || `i` || `o` || `u`)).toBe(true)
+        expect(isVowel(`a`)).toBe(true)
     });
-    it(`should return the boolean false when input isn't a,e,i,o,u `, function () {
-        expect(isEven(7)).toBe(false)
+    it(`should return the boolean true if a,e,i,o,u are input`, function () {
+        expect(isVowel(`A`)).toBe(true)
     });
+    it(`should return the boolean false when input isn't a vowel`, function () {
+        expect(isEven(`y`)).toBe(false)
+        });
+    it(`should return the boolean false when input is number`, function () {
+        expect(isEven(4)).toBe(false)
+        });
+        it(`should return the boolean false when input isn't a vowel`, function () {
+            expect(isEven(`banana`)).toBe(false)
+        });
+        it(`should return the boolean false when input is empty""`, function () {
+            expect(isEven()).toBe(false)
+        });
 });
 //add
 describe(`add`, function() {
@@ -89,36 +122,31 @@ describe(`add`, function() {
         expect(typeof add).toBe(`function`);
     });
     it(`should return the sum of input+input2`, function () {
-        expect(add(2, 7)).toBe(9)
+        expect(add(2, 3)).toBe(5)
+    });
+    it(`should return the sum of negative and negative numbers`, function () {
+        expect(add( -3,-9)).toBe(-12)
+    });
+    it(`should return the sum of positive and positive numbers`, function () {
+        expect(add( 5,6)).toBe(11)
     });
     it(`should return the sum of positive and negative numbers`, function () {
-        expect(add( -14,7)).toBe(-7)
+        expect(add( -4,10)).toBe(6)
     });
-    it(`should return the sum of positive and negative numbers`, function () {
+    it(`should return the NaN for empty strings`, function () {
         expect(add()).not.toBe(NaN)
     });
-    it(`should return the sum of positive and negative numbers`, function () {
-        expect(add(`hello`,`kevin`)).not.toBe(NaN)
+    it(`should return NaN for worded strings`, function () {
+        expect(add(`banana`,`split`)).not.toBe(NaN)
+    });
+    it(`should return NaN for worded strings`, function () {
+        expect(add(2,`apples`)).not.toBe(NaN)
     });
 });
 
-// The add function should sum two numbers, as long as each input is a number or a string containing a number.
-//     Write each assertion, confirm the test fails, write only enough code to green that specific test, refactor, then repeat (move onto the next test.)
-// Assert that add:
-//     add(2, 3) returns 5
-// add(-3, -9) returns -12
-// add("5", 6) returns 11
-// add("-4", "10") returns 6
-// add("banana", "split") returns NaN
-// add(2, "apples") returns NaN
-// add() returns NaN
-// Start with the smallest tests first.
-//     Write just enough code to green the test
-// Build up functionality one small piece at a time.
-//     If any input is not a number, return NaN
-// Refactor, if possible
-//     Repeat until the tests are robust and the function works as intented.
-//     Commit your work to git and push to GitHub.
+
+
+
 
 
 
