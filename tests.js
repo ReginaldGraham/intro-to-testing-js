@@ -94,6 +94,12 @@ describe(`add`, function() {
     it(`should return the sum of positive and negative numbers`, function () {
         expect(add( -14,7)).toBe(-7)
     });
+    it(`should return the sum of positive and negative numbers`, function () {
+        expect(add()).not.toBe(NaN)
+    });
+    it(`should return the sum of positive and negative numbers`, function () {
+        expect(add(`hello`,`kevin`)).not.toBe(NaN)
+    });
 });
 
 // The add function should sum two numbers, as long as each input is a number or a string containing a number.
